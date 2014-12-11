@@ -1,7 +1,7 @@
-require 'pry'
 module Haskell
   # TODO:
   class HaskellCompileError < StandardError; end
+
   class << self
     def invoke_sandbox!
       file_path = File.expand_path('../', __FILE__)
@@ -29,7 +29,7 @@ module Haskell
         end
       end
     rescue
-      raise "Something wrong..."
+      raise "Something wrong...https://github.com/Azabuhs/Ruby/issues"
     end
 
     def compiling?
