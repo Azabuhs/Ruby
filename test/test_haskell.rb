@@ -27,7 +27,7 @@ class TestHaskell < MiniTest::Unit::TestCase
 
   private
     def assert_equal_execute(str, &block)
-      Haskell.invoke_sandbox!
+      Haskell.invoke_sandbox!(File.expand_path('../', __FILE__))
       Haskell.compile(block.call)
       nil while Haskell.compiling?
       assert_equal str, Haskell.execute
@@ -35,7 +35,7 @@ class TestHaskell < MiniTest::Unit::TestCase
     end
 
     def assert_raise_compile_error(&block)
-      Haskell.invoke_sandbox!
+      Haskell.invoke_sandbox!(File.expand_path('../', __FILE__))
       Haskell.compile(block.call)
       nil while Haskell.compiling?
     # TODO: more prefer test
