@@ -9,6 +9,7 @@ class TestHaskell < MiniTest::Unit::TestCase
     assert_equal_execute '3',               get_code(1)
     assert_equal_execute '[3.1415927,4.0]', get_code(2)
     assert_equal_execute 'True',            get_code(3)
+    assert_equal_execute '[5,4,3,2,1]',     get_code(4)
 
     assert_raise_compile_error("Error")
   end
